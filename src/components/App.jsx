@@ -1,16 +1,20 @@
-export const App = () => {
+import PropTypes from 'prop-types';
+import Statistics from './statistics/Statistics';
+
+import user from './DB/user';
+import Profile from './profile/Profile';
+
+export default function App() {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
+    <div>
+      <Profile user={user} />
+      {/* <Statistics stats={data} /> */}
+      <Statistics />
     </div>
   );
+}
+Statistics.propTypes = {
+  id: PropTypes.string,
+  label: PropTypes.string,
+  percentage: PropTypes.number,
 };
