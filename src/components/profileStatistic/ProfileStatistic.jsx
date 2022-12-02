@@ -1,13 +1,21 @@
-const ProfileStatistic = props => {
-  console.log('🚀 ~ ProfileStatistic props', props);
+import PropTypes from 'prop-types';
+import {
+  ProfileCardItem,
+  ProfileCardItemLabel,
+} from '../profileStatistic/ProfileStatistic.styled';
 
-  return;
-  // Object.keys(props).map(key => (
-  //   <li key={key} className="stats">
-  //     <span className="label">{key}</span>
-  //     <span className="likes">{props[key]}</span>
-  //   </li>
-  // ));
+const ProfileStatistic = ({ name, count }) => {
+  return (
+    <ProfileCardItem key={name}>
+      <ProfileCardItemLabel>{name}</ProfileCardItemLabel>
+      <span className="count">{count}</span>
+    </ProfileCardItem>
+  );
 };
 
 export default ProfileStatistic;
+
+ProfileStatistic.propTypes = {
+  name: PropTypes.string.isRequired,
+  count: PropTypes.number.isRequired,
+};
